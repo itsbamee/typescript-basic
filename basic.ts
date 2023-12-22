@@ -1,26 +1,12 @@
-/*
-const add = (n1: number, n2: number): number => {
- 	return n1 + n2;
-};
-*/
-//공통의 인수와 리턴타입을 가지고 있는 함수는 Interface로 함수의 타입도 지정가능
+//같은 타입으로 인수가 전달되긴 하지만 인수의 갯수를 산정하기 힘들 때 rest 파라미터 타입처리
 interface Calc {
-	(n1: number, n2: number): number | void;
+	(...n: number[]): number;
 }
 
 const add: Calc = (n1, n2) => {
-	//return n1+n2;
-	console.log(n1 + n2);
+	return n1 + n2;
 };
 
-const minus: Calc = (n1, n2) => {
-	return n1 - n2;
-};
-
-const multiply: Calc = (n1, n2) => {
-	return n1 * n2;
-};
-
-const divider: Calc = (n1, n2) => {
-	return n1 / n2;
-};
+console.log(add(2, 4));
+console.log(add(2, 3, 4));
+console.log(add(1, 2, 3, 4, 5, 6, 7));
