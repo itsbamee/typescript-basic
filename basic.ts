@@ -1,24 +1,24 @@
-//함수에 전달되는 인수를 optional하게 지정가능하나
-//함수 코드블록안에서 해당 값이 없을 때를 위한 분기처리를 해야됨
-const test = (n1: number, n2: number, n3?: number): number => {
-	// const result = n1 + n2 + n3;
-	// const result = n3 === undefined ? n1 + n2 : n1 + n2 + n3;
-	// 위의 식의 코드 가독성이 안 좋으므로 아래처럼 ||를 이용해서 값이 없을 때 대체값 처리
-	// null병합 연산자 : 대체값 처리시 좌항의 값이 undefined, null 일때만 대체값 처리
-	// || 연산자 : 좌항의 값이 falsy 인식되는 모든값을 대체처리 함
-	const result = n1 + n2 + (n3 || 0);
-	return result;
+// const numbers: number[] = [1, 2, 3];
+const numbers: Array<number> = [1, 2, 3];
+const text: Array<string> = ['a', 'b', 'c'];
+
+//제네릭(Generic)
+//공통된 규칙인데 들어가는 자료형만 바뀔 떄
+//일일이 타입을 따로 지정하는게 비효율적이므로 타입 지정을 호출할 때
+//사용자로 하여금 지정하게 하는 틀
+
+/*
+  아래 코드의 경우 배열의 갯수값을 구하고 싶을 때
+  똑같은 구조임에도 불구하고 배열에 들어가는 자료형에 타입을 다르게 지정해야 되기 때문에 함수를 또 생성하는 번거로움
+*/
+
+const getLength = (arr: number[]) => {
+	return arr.length;
 };
-console.log(test(1, 2));
 
-const inform = (txt1?: string): void => {
-	// console.log(`안녕하세요 제 이름은 ${txt1 || '홍길동'}입니다.`);
-	console.log(`안녕하세요 제 이름은 ${txt1 ?? '홍길동'}입니다.`);
+const getLength2 = (arr: string[]) => {
+	return arr.length;
 };
-// ?? (무조건 undefined, null같이 확실하게 인수값이 없을 때에만 예외처리)
-// || (빈문자, 0같이 실제 전달되는 값이 있지만 false로 인식되기 때문에 의도치않게 예외처리 될 수 있음)
 
-//인수로 의도적으로 빈문자같이 false로 인식되는 값을 안쪽 코드에서 활용하고 싶을 때
-//null병합 연산자를 이용하면 예외처리가 되지 않으면서 해당 값을 안쪽에서 활용 가능
-
-inform(); //'',0
+console.log(getLength([1, 2, 3]));
+console.log(getLength2(['a', 'b', 'c']));
