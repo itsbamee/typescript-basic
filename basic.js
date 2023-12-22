@@ -9,3 +9,15 @@ let odd = [1, 3, 5];
 let even = [2, 4, 6];
 //tuple: 배열에 들어가는 타입이 다를 때
 let combined = [3, 'clean', false];
+let random = [4, 'apple', 5];
+let student1 = {
+    name: 'Kirstin',
+    age: 35,
+    isFemale: true,
+    address: 'LA'
+};
+let student2 = {
+    name: 'Emily',
+    age: 23,
+    isFemale: true
+};
