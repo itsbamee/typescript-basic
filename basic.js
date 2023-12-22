@@ -1,23 +1,13 @@
-//기본타입
-let text = 'hello';
-let num = 0;
-let isFemale = 'true';
-//참조형 타입
-let like = ['drama', 'music', 'clean'];
-let unlike = ['dirty', 'liar', 'war'];
-let odd = [1, 3, 5];
-let even = [2, 4, 6];
-//tuple: 배열에 들어가는 타입이 다를 때
-let combined = [3, 'clean', false];
-let random = [4, 'apple', 5];
-let student1 = {
-    name: 'Kirstin',
-    age: 35,
-    isFemale: true,
-    address: 'LA'
+const add = (n1, n2) => {
+    //return n1+n2;
+    console.log(n1 + n2);
 };
-let student2 = {
-    name: 'Emily',
-    age: 23,
-    isFemale: true
+const minus = (n1, n2) => {
+    return n1 - n2;
+};
+const multiply = (n1, n2) => {
+    return n1 * n2;
+};
+const divider = (n1, n2) => {
+    return n1 / n2;
 };
