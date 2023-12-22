@@ -12,8 +12,11 @@ const text = ['a', 'b', 'c'];
 //아래와 같이 type을 any로 지정하면 사용가능하나
 //any 타입은 우리 type을 지정하지 않았을 때 자동으로 설정되는 값이므로
 //컴파일시 에러를 잡지 못함
+//제네릭은 정의할 때 타입을 지정하는 것이 아닌 런타임에서 호출단계에 타입을 지정하는 구조
+//<타입변수명>
 const getLength = (arr) => {
     return arr.length;
 };
 console.log(getLength([1, 2, 3]));
 console.log(getLength(['a', 'b', 'c']));
+console.log(getLength([1, 'b', 'c']));
