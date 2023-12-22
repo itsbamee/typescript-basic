@@ -20,6 +20,20 @@ const getArrayInfo = <type>(arr: type[]) => {
 	console.log(arr);
 };
 
+const getTest = (arr: number[]) => {
+	console.log(arr);
+};
+
 //제네릭으로 호출 시 인터페이스 타입 지정해서 호출
 getArrayInfo<Student>(data);
 getArrayInfo<string>(data2);
+
+const custom = [
+	{ name: 'Paul', age: '30', isFemale: false },
+	{ name: 'Mark', age: 23, isFemale: false }
+];
+
+//아래와 같이 함수 호출시 Generic으로 지정한 타입과 다른 값이 들어가면 에러발생
+//잠재적인 오류를 미연에 방지 가능 (제네릭을 쓰는 이유)
+
+getArrayInfo<Student>(custom);
