@@ -9,11 +9,11 @@ const text = ['a', 'b', 'c'];
   아래 코드의 경우 배열의 갯수값을 구하고 싶을 때
   똑같은 구조임에도 불구하고 배열에 들어가는 자료형에 타입을 다르게 지정해야 되기 때문에 함수를 또 생성하는 번거로움
 */
+//아래와 같이 type을 any로 지정하면 사용가능하나
+//any 타입은 우리 type을 지정하지 않았을 때 자동으로 설정되는 값이므로
+//컴파일시 에러를 잡지 못함
 const getLength = (arr) => {
     return arr.length;
 };
-const getLength2 = (arr) => {
-    return arr.length;
-};
 console.log(getLength([1, 2, 3]));
-console.log(getLength2(['a', 'b', 'c']));
+console.log(getLength(['a', 'b', 'c']));
