@@ -1,12 +1,23 @@
-//같은 타입으로 인수가 전달되긴 하지만 인수의 갯수를 산정하기 힘들 때 rest 파라미터 타입처리
-interface Calc {
-	(...n: number[]): number;
-}
+type score = 'A' | 'B' | 'C' | 'D' | 'F';
+type grade = 'first' | 'second' | 'third' | 'fourth';
+// type Grade = Record<1 | 2 | 3 | 4, score>;
 
-const add: Calc = (n1, n2) => {
-	return n1 + n2;
+type OptionsFlags<Type> = {
+	[Property in keyof Type]: score;
 };
 
-console.log(add(2, 4));
-console.log(add(2, 3, 4));
-console.log(add(1, 2, 3, 4, 5, 6, 7));
+interface Student {
+	readonly name: string;
+	age: number;
+	isFemale: boolean;
+	address?: string;
+	grades: { [key in Grade]: score };
+	//property의 키로 들어오는 자료형은 알고있지만 key의 이름을 산정할 수 없을 때
+}
+
+let student1: Student = {
+	name: 'Andy',
+	age: 40,
+	isFemale: false,
+	second: 'B'
+};
