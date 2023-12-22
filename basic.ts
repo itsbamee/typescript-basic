@@ -1,23 +1,8 @@
-type score = 'A' | 'B' | 'C' | 'D' | 'F';
-type grade = 'first' | 'second' | 'third' | 'fourth';
-// type Grade = Record<1 | 2 | 3 | 4, score>;
-
-type OptionsFlags<Type> = {
-	[Property in keyof Type]: score;
+//함수에 전달되는 인수를 optional하게 지정가능하나
+//함수 코드블록안에서 해당 값이 없을 때를 위한 분기처리를 해야됨
+const test = (n1: number, n2: number, n3?: number): number => {
+	// const result = n1 + n2 + n3;
+	const result = n3 === undefined ? n1 + n2 : n1 + n2 + n3;
+	return result;
 };
-
-interface Student {
-	readonly name: string;
-	age: number;
-	isFemale: boolean;
-	address?: string;
-	grades: { [key in Grade]: score };
-	//property의 키로 들어오는 자료형은 알고있지만 key의 이름을 산정할 수 없을 때
-}
-
-let student1: Student = {
-	name: 'Andy',
-	age: 40,
-	isFemale: false,
-	second: 'B'
-};
+console.log(test(1, 2, 3));
