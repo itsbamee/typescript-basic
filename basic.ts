@@ -37,3 +37,11 @@ const custom = [
 //잠재적인 오류를 미연에 방지 가능 (제네릭을 쓰는 이유)
 
 getArrayInfo<Student>(custom);
+// getArrayInfo(Student[]);
+
+//아래 코드에서는 숫자값만 담긴 배열이 인수로 넘어가도록 제네릭을 설정했지만
+//문자값이 포함되어 있는 배열을 인수로 전달해서 제네릭이 호출 시 에러 발생
+
+const custom2 = [1, 2, '3'];
+getArrayInfo<number>(custom2);
+// getArrayInfo(number[])
